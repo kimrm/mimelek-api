@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Noun;
 use App\Http\Requests\NounRequest;
+use App\Http\Requests\UpdateNounRequest;
 
 class NounController extends Controller
 {
@@ -57,7 +58,7 @@ class NounController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(NounRequest $request, Noun $noun)
+    public function update(UpdateNounRequest $request, Noun $noun)
     {
         $noun->update($request->validated());
 

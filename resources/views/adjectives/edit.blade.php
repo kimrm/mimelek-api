@@ -10,13 +10,13 @@
             @csrf            
             @method('PUT')
             <div class="flex flex-wrap mb-6">
-                <div class="w-full md:w-[300px] mb-6 md:mb-0">
+                <div class="w-full md:w-[200px] mr-2 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         Word
                     </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="word" name="word" type="text" placeholder="Word" value="{{ old('word', $adjective->word) }}">
+                    <input readonly class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="word" name="word" type="text" placeholder="Word" value="{{ old('word', $adjective->word) }}">
                 </div>
-                <div class="w-full md:w-[200px] mb-6 md:mb-0">
+                <div class="w-full md:w-[200px] mr-2 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         En
                     </label>

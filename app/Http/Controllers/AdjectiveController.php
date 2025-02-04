@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Adjective;
 use App\Http\Requests\AdjectiveRequest;
+use App\Http\Requests\UpdateAdjectiveRequest;
 
 class AdjectiveController extends Controller
 {
@@ -57,7 +58,7 @@ class AdjectiveController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(AdjectiveRequest $request, Adjective $adjective)
+    public function update(UpdateAdjectiveRequest $request, Adjective $adjective)
     {
         $adjective->update($request->validated());
 

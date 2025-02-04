@@ -5,17 +5,28 @@
         </h2>
     </x-slot>
 
+    
+
     <div class="px-12 mt-12 max-w-7xl mx-auto">
+        @if ($errors->any())
+        <div class="mb-12 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
        <form action="{{ route('adjectives.store') }}" method="POST">
             @csrf            
             <div class="flex flex-wrap mb-6">
-                <div class="w-full md:w-[300px] mb-6 md:mb-0">
+                <div class="w-full md:w-[200px] mr-2 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         Word
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="word" name="word" type="text" placeholder="Word" value="{{ request()->word }}">
                 </div>
-                <div class="w-full md:w-[200px] mb-6 md:mb-0">
+                <div class="w-full md:w-[200px] mr-2 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         En
                     </label>
@@ -50,8 +61,8 @@
                 <div class="overflow-hidden bg-white sm:rounded-lg p-6 mb-3 flex justify-between">                   
                     <div class="flex flex-row gap-4">
                         <div>{{$adjective->word}}</div>      
-                        <div>{{$adjective->en}}</div>
-                        <div>{{$adjective->et}}</div>                  
+                        <div><span class="text-neutral-500">en </span>{{$adjective->en}}</div>
+                        <div><span class="text-neutral-500">et </span>{{$adjective->et}}</div>                  
                         <div>{{$adjective->difficulty}}</div>
                     </div>
                 <div>                     
@@ -71,3 +82,13 @@
     </div>
     
 </x-app-layout>
+
+<script>
+    const word = document.getElementById('word');
+    const en = document.getElementById('en');
+    const et = document.getElementById('et');
+    word.addEventListener('blur', function() {
+        en.value = word.value;
+        et.value = word.value;
+    });
+</script>

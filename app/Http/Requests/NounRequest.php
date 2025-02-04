@@ -22,7 +22,7 @@ class NounRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'word' => ['required', 'string', 'max:255'],
+            'word' => ['required', 'unique:nouns', 'string', 'max:255'],
             'gender' => ['required', 'string'],
             'difficulty' => ['required', 'string'],
         ];

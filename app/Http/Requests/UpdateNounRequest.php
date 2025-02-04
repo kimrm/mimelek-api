@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdjectiveRequest extends FormRequest
+class UpdateNounRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,8 @@ class AdjectiveRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'word' => ['required', ' unique:adjectives', 'string', 'max:255'],
-            'en' => ['required', 'string'],
-            'et' => ['required', 'string'],
+            'word' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string'],
             'difficulty' => ['required', 'string'],
         ];
     }
