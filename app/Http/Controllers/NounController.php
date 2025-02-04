@@ -47,17 +47,21 @@ class NounController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Noun $noun)
     {
-        //
+        return view('nouns.edit', [
+            'noun' => $noun,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(NounRequest $request, Noun $noun)
     {
-        //
+        $noun->update($request->validated());
+
+        return redirect()->route('nouns.index');
     }
 
     /**
