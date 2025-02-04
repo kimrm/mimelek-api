@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('adjectives.index')" :active="request()->routeIs('adjectives.index')">
                         {{ __('Adjectives') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('deploy.index')" :active="request()->routeIs('deploy.index')">
+                        {{ __('Deploy') }}
+                    </x-nav-link>
                     
                 </div>
             </div>

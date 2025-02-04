@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\NounController;
 use App\Http\Controllers\AdjectiveController;
+use App\Http\Controllers\DeployController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +26,9 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('/nouns', NounController::class);
     Route::resource('/adjectives', AdjectiveController::class);
+
+    Route::get('/deploy', [DeployController::class, 'index'])->name('deploy.index');
+    Route::post('/deploy', [DeployController::class, 'store'])->name('deploy.store');
 });
 
 require __DIR__ . '/auth.php';
