@@ -14,8 +14,14 @@ class NounController extends Controller
      */
     public function index()
     {
+        $word = request('word');
+        $difficulty = request('difficulty');
+
         return view('nouns.index', [
-            'nouns' => Noun::paginate(),
+            'nouns' => Noun::word($word)
+                ->difficulty($difficulty)
+                ->orderBy('created_at', 'desc')
+                ->paginate(),
         ]);
     }
 
@@ -68,8 +74,10 @@ class NounController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Noun $noun)
     {
-        //
+        $noun->delete();
+
+        return redirect()->route('nouns.index');
     }
 }

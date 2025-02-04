@@ -14,8 +14,15 @@ class AdjectiveController extends Controller
      */
     public function index()
     {
+
+        $word = request('word');
+        $difficulty = request('difficulty');
+
         return view('adjectives.index', [
-            'adjectives' => Adjective::paginate(),
+            'adjectives' => Adjective::word($word)
+                ->difficulty($difficulty)
+                ->orderBy('created_at', 'desc')
+                ->paginate(),
         ]);
     }
 

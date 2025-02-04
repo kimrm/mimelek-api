@@ -12,4 +12,18 @@ class Adjective extends Model
         'en',
         'et'
     ];
+
+    protected function scopeWord($query, $word)
+    {
+        if ($word) {
+            return $query->where('word', 'like', '%' . $word . '%');
+        }
+    }
+
+    protected function scopeDifficulty($query, $difficulty)
+    {
+        if ($difficulty) {
+            return $query->where('difficulty', $difficulty);
+        }
+    }
 }
