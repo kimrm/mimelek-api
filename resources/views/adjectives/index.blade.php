@@ -7,7 +7,8 @@
 
     
 
-    <div class="px-12 mt-12 max-w-7xl mx-auto bg-white py-12 shadow sm:rounded-lg>
+    <div class="px-12 mt-12 max-w-7xl mx-auto bg-white py-12 shadow sm:rounded-lg">
+
         @if ($errors->any())
         <div class="mb-12 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
             <ul>
@@ -17,7 +18,8 @@
             </ul>
         </div>
         @endif
-       <form action="{{ route('adjectives.store') }}" method="POST">
+
+        <form action="{{ route('adjectives.store') }}" method="POST">
             @csrf            
             <div class="flex flex-wrap mb-6">
                 <div class="w-full md:w-[200px] mr-2 mb-6 md:mb-0">
