@@ -14,7 +14,10 @@ class AdjectiveController extends Controller
      */
     public function index()
     {
-        return AdjectiveResource::collection(Adjective::all());
+        $adjectives = Adjective::query()
+            ->language(request('language'))
+            ->get();
+        return AdjectiveResource::collection($adjectives);
     }
 
     /**

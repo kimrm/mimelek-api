@@ -11,6 +11,7 @@ class Noun extends Model
         'word',
         'gender',
         'difficulty',
+        'language',
     ];
 
     protected function hard(): Attribute
@@ -31,6 +32,13 @@ class Noun extends Model
     {
         if ($word) {
             return $query->where('word', 'like', '%' . $word . '%');
+        }
+    }
+
+    public function scopeLanguage($query, $language)
+    {
+        if ($language) {
+            return $query->where('language', $language);
         }
     }
 }

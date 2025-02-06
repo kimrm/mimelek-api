@@ -25,6 +25,7 @@ class NounRequest extends FormRequest
             'word' => ['required', 'unique:nouns', 'string', 'max:255'],
             'gender' => ['required', 'string'],
             'difficulty' => ['required', 'string'],
+            'language' => ['nullable', 'string'],
         ];
     }
 }

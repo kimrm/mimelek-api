@@ -26,6 +26,7 @@ class AdjectiveRequest extends FormRequest
             'en' => ['required', 'string'],
             'et' => ['required', 'string'],
             'difficulty' => ['required', 'string'],
+            'language' => ['nullable', 'string'],
         ];
     }
 }

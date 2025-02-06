@@ -14,7 +14,10 @@ class NounController extends Controller
      */
     public function index()
     {
-        return NounResource::collection(Noun::all());
+        $nouns = Noun::query()
+            ->language(request('language'))
+            ->get();
+        return NounResource::collection($nouns);
     }
 
     /**

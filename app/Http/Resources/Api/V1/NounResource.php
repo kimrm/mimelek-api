@@ -19,6 +19,7 @@ class NounResource extends JsonResource
             'word' => $this->word,
             'gender' => $this->gender,
             'difficulty' => $this->difficulty,
+            'language' => $this->language,
         ];
     }
 }

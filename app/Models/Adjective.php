@@ -10,7 +10,8 @@ class Adjective extends Model
         'word',
         'difficulty',
         'en',
-        'et'
+        'et',
+        'language'
     ];
 
     protected function scopeWord($query, $word)
@@ -24,6 +25,13 @@ class Adjective extends Model
     {
         if ($difficulty) {
             return $query->where('difficulty', $difficulty);
+        }
+    }
+
+    protected function scopeLanguage($query, $language)
+    {
+        if ($language) {
+            return $query->where('language', $language);
         }
     }
 }

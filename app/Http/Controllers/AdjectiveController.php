@@ -17,10 +17,12 @@ class AdjectiveController extends Controller
 
         $word = request('word');
         $difficulty = request('difficulty');
+        $language = request('language');
 
         return view('adjectives.index', [
             'adjectives' => Adjective::word($word)
                 ->difficulty($difficulty)
+                ->language($language)
                 ->orderBy('created_at', 'desc')
                 ->paginate(),
         ]);
@@ -41,7 +43,9 @@ class AdjectiveController extends Controller
     {
         Adjective::create($request->validated());
 
-        return redirect()->route('adjectives.index');
+        return redirect()->route('adjectives.index', [
+            'language' => $request->language,
+        ]);
     }
 
     /**

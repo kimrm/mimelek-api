@@ -20,6 +20,7 @@ class AdjectiveResource extends JsonResource
             'en' => $this->en,
             'et' => $this->et,
             'difficulty' => $this->difficulty,
+            'language' => $this->language,
         ];
     }
 }

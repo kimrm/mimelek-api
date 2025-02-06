@@ -16,10 +16,12 @@ class NounController extends Controller
     {
         $word = request('word');
         $difficulty = request('difficulty');
+        $language = request('language');
 
         return view('nouns.index', [
             'nouns' => Noun::word($word)
                 ->difficulty($difficulty)
+                ->language($language)
                 ->orderBy('created_at', 'desc')
                 ->paginate(),
         ]);
@@ -38,9 +40,12 @@ class NounController extends Controller
      */
     public function store(NounRequest $request)
     {
+
         Noun::create($request->validated());
 
-        return redirect()->route('nouns.index');
+        return redirect()->route('nouns.index', [
+            'language' => $request->language,
+        ]);
     }
 
     /**

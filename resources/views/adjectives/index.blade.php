@@ -24,6 +24,16 @@
             <div class="flex flex-wrap mb-6">
                 <div class="w-full md:w-[200px] mr-2 mb-6 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                        Language
+                    </label>
+                    <select class="appearance none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="language" name="language">
+                        <option value="">Select Language</option>
+                        <option value="en" {{ request()->language == 'en' ? 'selected' : '' }}>En</option>
+                        <option value="no" {{ request()->language == 'no' || request()->language === '' ? 'selected' : '' }}>No</option>
+                    </select>
+                </div>
+                <div class="w-full md:w-[200px] mr-2 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                         Word
                     </label>
                     <input class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="word" name="word" type="text" placeholder="Word" value="{{ request()->word }}">
